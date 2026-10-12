@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold: #d4af37;
+    --gold-light: #f9e281;
+    --gold-dark: #b89325;
+    --bg-dark: #0b0b0b;
+    --bg-card: rgba(20, 20, 20, 0.75);
+    --border-gold: rgba(212, 175, 55, 0.25);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0b0b0b;
+    color: #f0ece4;
+  }
+
+  body {
+    background-color: #0b0b0b;
+    color: #f0ece4;
+    font-family: var(--font-playfair), Georgia, serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f9e281;
+}
+
+/* Luxury Gold Text Gradient */
+.gold-text {
+  background: linear-gradient(135deg, #d4af37 0%, #f9e281 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Gold Gradient Background for Buttons */
+.gold-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #f9e281 50%, #d4af37 100%);
+  color: #0b0b0b;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+.gold-btn:hover {
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Glassmorphism Card Style */
+.glass {
+  background: rgba(20, 20, 20, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  transition: all 0.3s ease;
+}
+.glass:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+/* Pulse animation for floating menu button */
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.gold-pulse {
+  animation: goldPulse 2.4s infinite;
+}
+
+/* Shimmer shine animation on course cards */
+@keyframes sheen {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(212, 175, 55, 0.12) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg) translateX(-150%);
+  transition: transform 0.8s ease;
+}
+.shine-effect:hover::after {
+  transform: skewX(-20deg) translateX(300%);
+}
+
+/* Luxury Hero Breathing Aura */
+@keyframes auraPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+.aura-pulse {
+  animation: auraPulse 4s ease-in-out infinite;
+}
+
+/* Subtle Floating Embers / Particles */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-25px) translateX(12px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-50px) translateX(-8px);
+    opacity: 0;
+  }
+}
+.particle-float {
+  animation: floatParticle 6s ease-in-out infinite;
+}
+
+/* Text Shimmer Effect */
+@keyframes textShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #d4af37 0%,
+    #fff2a8 25%,
+    #d4af37 50%,
+    #fff2a8 75%,
+    #d4af37 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 6s linear infinite;
+}
+
+/* Loading Progress Bar Animation */
+@keyframes loadingProgress {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.animate-progress {
+  animation: loadingProgress 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
