@@ -24,6 +24,13 @@
   }
 }
 
+/* Hide Next.js Development Indicator Badge */
+nextjs-portal,
+[data-nextjs-toast],
+[data-nextjs-dev-overlay] {
+  display: none !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
